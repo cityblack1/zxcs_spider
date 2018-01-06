@@ -9,7 +9,10 @@ import inspect
 try:
     from novels.models import Novels
 except:
-    import zxcs_spider.__init__
+    try:
+        import zxcs_spider.__init__
+    except:
+        import __init__
     from novels.models import Novels
 from functools import wraps
 # from proxies import get_a_proxy
