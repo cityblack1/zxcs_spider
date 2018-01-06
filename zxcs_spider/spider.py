@@ -80,11 +80,13 @@ def parse_tree(tr):
 
 
 def has_next(tr):
-    next_node = tr.xpath('//div[@id="pagenavi"]/span/following-sibling::*[1]')
-    if next_node and next_node[0].tag == 'a':
-        logger.info('存在下一页')
-        return next_node[0].xpath('@href')[0]
-    return False
+    try:
+        next_node = tr.xpath('//div[@id="pagenavi"]/span/following-sibling::*[1]')
+        if next_node and next_node[0].tag == 'a':
+            logger.info('存在下一页')
+            return next_node[0].xpath('@href')[0]
+    except:
+        return ''
 
 
 def get_review(code, item):
