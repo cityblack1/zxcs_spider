@@ -1,0 +1,58 @@
+2018-01-06 20:37:14,439 - MainThread - zxcs - 33 - inner - ERROR - [出现异常]http://www.zxcs8.com/sort/26的爬取过程出现异常, 剩余重试次数3
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\shop\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\Users\Administrator\Envs\shop\lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Lib\socket.py", line 745, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\shop\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\Users\Administrator\Envs\shop\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\Users\Administrator\Envs\shop\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\Users\Administrator\Envs\shop\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x00000000050794E0>: Failed to establish a new connection: [Errno 11004] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\shop\lib\site-packages\requests\adapters.py", line 440, in send
+    timeout=timeout
+  File "C:\Users\Administrator\Envs\shop\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\Users\Administrator\Envs\shop\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='www.zxcs8.com', port=80): Max retries exceeded with url: /sort/26 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000000050794E0>: Failed to establish a new connection: [Errno 11004] getaddrinfo failed',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/Administrator/Desktop/proxy_profucts/zxcs/zxcs_spider/spider.py", line 31, in inner
+    r = fun(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\shop\lib\site-packages\requests\sessions.py", line 521, in get
+    return self.request('GET', url, **kwargs)
+  File "C:\Users\Administrator\Envs\shop\lib\site-packages\requests\sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Administrator\Envs\shop\lib\site-packages\requests\sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Administrator\Envs\shop\lib\site-packages\requests\adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='www.zxcs8.com', port=80): Max retries exceeded with url: /sort/26 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000000050794E0>: Failed to establish a new connection: [Errno 11004] getaddrinfo failed',))
