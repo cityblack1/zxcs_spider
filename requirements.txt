@@ -1,0 +1,5 @@
+Django==1.11.6
+gevent==1.2.2
+lxml==4.0.0
+redis==2.10.6
+requests==2.18.4
